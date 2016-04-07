@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='earningsCalculator'>
   <head>
-    <base href="/" />
+    <!-- <base href="/details" /> -->
     <meta charset="utf-8">
     <title>Earnings Calculator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
@@ -10,15 +10,19 @@
   </head>
   <body>
     <nav class="row">
+      <h3><a href="/#/details">Earnings Calculator</a></h3>
       <ul>
-        <li><h1><a href="/details">Earnings Calculator</a></h1></li>
-        <li><a href="/details">Meal Details</a></li>
-        <li><a href="/charges">Charge Overview</a></li>
-        <li><a href="/earnings">Earnings Info</a></li>
+        <li><a href="/#/details">Meal Details</a></li>
+        <li><a href="/#/charges">Charge Overview</a></li>
+        <li><a href="/#/earnings">Earnings Info</a></li>
       </ul>
     </nav>
 <hr>
-    <div class="container" ng-view></div>
+    <div class="container">
+      <div ng-view>
+
+      </div>
+    </div>
 <hr>
     <footer ng-controller="resetController">
       <button type="submit" ng-click="resetAll()">Reset All</button>

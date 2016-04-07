@@ -1,14 +1,27 @@
 <div class="ten columns">
-  <form name="mealDetails" ng-submit="addMeal()">
-    <div class="row">
-     <div class="six columns">
-       <label for="exampleEmailInput">Your email</label>
-       <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
-     </div>
+  <h4>Enter Details for Meal {{ meal.length }}:</h4>
 
+  <form name="mealDetails" ng-submit="addMeal(meal)">
+    <div class="row">
+     <div class="ten columns">
+       <label for="price">Base Meal Price: $</label>
+       <input class="u-full-width" type="text" placeholder="0.00" id="price" ng-model="meal.price">
+     </div>
    </div>
-   <label for="exampleMessage">Message</label>
-   <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
-   <input class="button-primary" type="submit" value="Submit">
+   <div class="row">
+     <div class="ten columns">
+       <label for="tax">Tax Rate: %</label>
+       <input class="u-full-width" type="text" placeholder="0.00" id="tax" ng-model="meal.tax">
+     </div>
+   </div>
+    <div class="row">
+      <div class="ten columns">
+        <label for="tip">Tip Percentage: %</label>
+        <input class="u-full-width" type="text" placeholder="0.00" id="tip" ng-model="meal.tip">
+      </div>
+    </div>
+   <input class="button-primary" type="submit" value="Add Meal" >
+   <input class="button" value="Cancel" ng-click="resetAll(meal)">
   </form>
+
 </div>

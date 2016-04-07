@@ -1,18 +1,20 @@
 app.service('MealDataService', ['$http', function ($http) {
   return {
-    meals: [].
+    meals: [],
     total: {},
     getMeals: function () {
-      // return all meals
+      return this.meals;
     },
     getCumulativeTotal: function () {
       // returns totals
     },
-    addMeal: function () {
-      // adds a new meal
+    addMeal: function (newMeal) {
+      this.meals.push(newMeal);
+      return this.meals;
     },
-    resetAll: function () {
+    resetAll: function (obj) {
       // clears everything
+      return obj = {};
     }
   }
 }]);
