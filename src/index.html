@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='myApp'>
+<html lang="en" ng-app='earningsCalculator'>
   <head>
+    <base href="/" />
     <meta charset="utf-8">
     <title>Earnings Calculator</title>
-https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <!-- sample angular code -->
-    <div class="container">
-      <div ng-controller="myController">
-        <p>{{ greeting }}</p>
-      </div>
-    </div>
+    <nav class="row">
+      <ul>
+        <li><h1><a href="/details">Earnings Calculator</a></h1></li>
+        <li><a href="/details">Meal Details</a></li>
+        <li><a href="/charges">Charge Overview</a></li>
+        <li><a href="/earnings">Earnings Info</a></li>
+      </ul>
+    </nav>
+<hr>
+    <div class="container" ng-view></div>
+<hr>
+    <footer ng-controller="resetController">
+      <button type="submit" ng-click="resetAll()">Reset All</button>
+    </footer>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-route.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
   </body>
 </html>
