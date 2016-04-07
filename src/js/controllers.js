@@ -28,9 +28,9 @@ app.controller('chargesController', ['$scope', 'MealDataService', function($scop
     }
   };
   $scope.nextMeal = function () {
-    if ($scope.index === allMeals.length -1) {
+    if ($scope.index === $scope.allMeals.length -1) {
       // add class to disable button?
-      $scope.index = allMeals.length -1;
+      $scope.index = $scope.allMeals.length -1;
     } else {
       ++$scope.index;
     }
