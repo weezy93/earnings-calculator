@@ -28,3 +28,29 @@ li a {
   text-decoration: none;
   color: black;
 }
+
+#form {
+  display: flex;
+  flex-flow: column;
+}
+
+ #form form {
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+}
+
+#form.button-primary, #form.button {
+  margin: auto;
+}
+
+footer {
+  display: flex;
+}
+
+#reset {
+  background-color: #9d0606;
+  color: white;
+  margin: auto;
+  margin-bottom: 4rem;
+}

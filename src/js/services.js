@@ -1,6 +1,6 @@
-app.service('MealDataService', ['$http', function ($http) {
+app.service('MealDataService', ['$http', '$location', function ($http, $location) {
   return {
-    meals: [],
+    meals: [{price: 30, tax: 2.7, tip: 5.4}],
     total: {},
     getMeals: function () {
       return this.meals;
@@ -12,9 +12,11 @@ app.service('MealDataService', ['$http', function ($http) {
       this.meals.push(newMeal);
       return this.meals;
     },
-    resetAll: function (obj) {
+    resetAll: function () {
+      console.log($location.path(), $location.url());
       // clears everything
-      return obj = {};
+      $location.path('/details');
+      return this.meals = [];
     }
   }
 }]);

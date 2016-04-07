@@ -1,4 +1,4 @@
-<div class="ten columns">
+<div class="ten columns" ng-hide="allMeals.length === 0">
   <h4>Overview for Meal {{ index + 1 }}:</h4>
   <input type="button" value="Previous Meal" ng-click="previousMeal()">
   <input type="button" value="Next Meal" ng-click="nextMeal()">
@@ -6,6 +6,9 @@
   <h5>Subtotal: {{ allMeals[index].price + allMeals[index].tax | currency }}</h5>
   <h5>Tip: {{ allMeals[index].tip | currency }}</h5>
   <hr>
-  <h5>Total: {{ allMeals[index].tip + allMeals[index].price + allMeals[index].tax | currency }}</h5>
-  {{ allMeals[index]}}
+  <h5>Total: {{ allMeals[index].price + allMeals[index].tip + allMeals[index].tax | currency }}</h5>
+</div>
+
+<div class="ten columns" ng-show="allMeals.length === 0">
+  <h4>No Meals</h4>
 </div>

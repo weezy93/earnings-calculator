@@ -3,9 +3,9 @@ app.controller('detailsController', ['$scope', 'MealDataService', function($scop
 
   $scope.addMeal = function (meal) {
     meal.price = Number(meal.price);
-    meal.tax = Number(meal.tax);
-    meal.tip = Number(meal.tip);
-    MealDataService.addMeal($scope.meal);
+    meal.tax = meal.price * meal.tax / 100;
+    meal.tip = meal.price * meal.tip /100;
+    console.log(MealDataService.addMeal($scope.meal));
     $scope.meal = {};
 
     // logic to calculate tax and tip
@@ -15,6 +15,7 @@ app.controller('detailsController', ['$scope', 'MealDataService', function($scop
 }])
 app.controller('chargesController', ['$scope', 'MealDataService', function($scope, MealDataService) {
   $scope.allMeals = MealDataService.getMeals();
+  
   $scope.index = 0;
 
 
@@ -38,7 +39,21 @@ app.controller('chargesController', ['$scope', 'MealDataService', function($scop
 }])
 app.controller('earningsController', ['$scope', 'MealDataService', function($scope, MealDataService) {
 
+  var allMeals =  MealDataService.getMeals();
+
+  var tipTotal = allMeals.reduce((prev, meal) => prev += meal.tip, 0);
+
+  $scope.tipTotal = tipTotal;
+
+
+  $scope.mealCount = allMeals.length;
+  $scope.averageTip = tipTotal / allMeals.length;
+
 }])
 app.controller('resetController', ['$scope', 'MealDataService', function($scope, MealDataService) {
+  $scope.resetAll = function () {
+    return MealDataService.resetAll();
+    // redirect after reset
+  };
 
 }]);
